@@ -1,0 +1,19 @@
+[user]
+	name = Nuri Mertcan Guner
+	email = 9140452+NMGuner@users.noreply.github.com
+[core]
+	excludesfile = ~/.gitignore_global
+    pager = delta
+[init]
+	defaultBranch = main
+[credential]
+	helper = osxkeychain
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    navigate = true
+    dark = true
+	side-by-side = true
+	line-numbers = true
+[merge]
+    conflictstyle = zdiff3

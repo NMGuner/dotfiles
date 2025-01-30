@@ -1,0 +1,31 @@
+# zinit: https://github.com/zdharma-continuum/zinit
+source /opt/homebrew/opt/zinit/zinit.zsh
+zinit ice depth=1 # git clone depth
+
+# zsh theme
+zinit light romkatv/powerlevel10k
+
+zinit snippet OMZL::git.zsh
+
+zinit snippet OMZP::asdf
+zinit snippet OMZP::colored-man-pages
+zinit snippet OMZP::command-not-found
+
+###################################################
+# Plugins
+###################################################
+# autosuggestions
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+zinit ice wait="0a" lucid atload="_zsh_autosuggest_start"
+zinit light zsh-users/zsh-autosuggestions
+# syntax highlighting
+zinit ice wait="0c" lucid atinit="zpcompinit;zpcdreplay"
+zinit light zdharma-continuum/fast-syntax-highlighting
+# vim mode
+zinit light jeffreytse/zsh-vi-mode
+# autocompletions
+zinit ice blockf atpull'zinit creinstall -q .'
+zinit light zsh-users/zsh-completions
+
+autoload compinit
+compinit

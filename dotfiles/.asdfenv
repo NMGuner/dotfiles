@@ -1,0 +1,8 @@
+# asdf: https://asdf-vm.com/
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+# asdf-golang
+. ~/.asdf/plugins/golang/set-env.zsh
+
+# asdf-java
+. ~/.asdf/plugins/java/set-java-home.zsh
