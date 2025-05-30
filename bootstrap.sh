@@ -12,22 +12,22 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
     echo "Starting bootstrap process...";
 
     # Run dotfiles.sh
-    ./dotfiles.sh --force
+    ./scripts/dotfiles.sh --force
 
     # Run brew.sh
-    ./brew.sh
+    ./scripts/brew.sh
 
     # Run asdf.sh
-    ./asdf.sh
+    ./scripts/asdf.sh
 
     # Run android.sh
-    ./android.sh
+    ./scripts/android.sh
 
     # Run zsh.sh
-    ./zsh.sh
+    ./scripts/zsh.sh
 
     # Run macos.sh
-    ./macos.sh --force
+    ./scripts/macos.sh --force
 
     echo "Bootstrap process completed.";
 fi;
