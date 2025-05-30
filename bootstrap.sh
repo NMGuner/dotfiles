@@ -20,6 +20,9 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
     # Run asdf.sh
     ./scripts/asdf.sh
 
+    # Run rust.sh
+    ./scripts/rust.sh
+
     # Run android.sh
     ./scripts/android.sh
 
