@@ -5,10 +5,10 @@ echo "Installing Android SDK and tools..."
 # Android Platform Tools
 sdkmanager --install platform-tools
 
-# Setup Android SDK 35
-sdkmanager --install "platforms;android-35"
-sdkmanager --install "build-tools;35.0.1"
-sdkmanager --install "sources;android-35"
+# Setup Android SDK 36
+sdkmanager --install "platforms;android-36"
+sdkmanager --install "build-tools;36.0.0"
+sdkmanager --install "sources;android-36"
 
 # Update old packages if needed
 sdkmanager --update

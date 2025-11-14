@@ -13,7 +13,7 @@ source ~/.zprofile;
 zinit self-update
 
 # Update plugins
-zinit update
+zinit update --all
 
 # Clear completions
 zinit cclear
