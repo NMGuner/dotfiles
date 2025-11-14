@@ -30,13 +30,6 @@ HIST_STAMPS="yyyy-mm-dd"
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# For homebrew/command-not-found
-# https://github.com/Homebrew/homebrew-command-not-found
-HB_CNF_HANDLER="$(brew --repository)/Library/Taps/homebrew/homebrew-command-not-found/handler.sh"
-if [ -f "$HB_CNF_HANDLER" ]; then
-source "$HB_CNF_HANDLER";
-fi
-
 #########################################################################
 # SETOPT
 #########################################################################
