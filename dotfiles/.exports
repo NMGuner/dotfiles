@@ -33,21 +33,11 @@ export MANPAGER='less -X';
 # https://stackoverflow.com/a/42265848/96656
 export GPG_TTY=$(tty);
 
-# Android
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
-export ANDROID_NDK_HOME=/opt/homebrew/share/android-ndk
-
-# export ANT_HOME=$(brew info ant | grep /opt/homebrew/ | awk '{print $1}')
-export ANT_HOME=/opt/homebrew/Cellar/ant/1.10.15_1
-# export MAVEN_HOME=$(brew info maven | grep /opt/homebrew/ | awk '{print $1}')
-export MAVEN_HOME=/opt/homebrew/Cellar/maven/3.9.9
-# export GRADLE_HOME=$(brew info gradle | grep /opt/homebrew/ | awk '{print $1}')
-export GRADLE_HOME=/opt/homebrew/Cellar/gradle/8.12
-
 # Homebrew
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_ANALYTICS=1
 
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:~/.lmstudio/bin"
+HOMEBREW_COMMAND_NOT_FOUND_HANDLER="$(brew --repository)/Library/Homebrew/command-not-found/handler.sh"
+if [ -f "$HOMEBREW_COMMAND_NOT_FOUND_HANDLER" ]; then
+    source "$HOMEBREW_COMMAND_NOT_FOUND_HANDLER";
+fi

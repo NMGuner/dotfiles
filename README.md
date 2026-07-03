@@ -24,7 +24,7 @@ There are certain shell scripts here that setup more than just dotfiles in home 
 In order to update the Brewfile, you can run the following command to generate a new one:
 
 ```bash
-brew bundle dump --file=Brewfile-$(date +%Y.%m.%d-%H.%M.%S) --force
+brew bundle dump --file=Brewfile-$(date +%Y.%m.%d-%H.%M.%S) --force --formula --cask --tap
 ```
 
 This will create a new Brewfile with the current state of installed packages, which can then be reviewed and merged into the main `Brewfile`. The generated file will have a timestamp in its name for easy identification and these files are ignored in version control.
@@ -32,5 +32,5 @@ This will create a new Brewfile with the current state of installed packages, wh
 If you want to update the Brewfile without creating a new one and skip reviewing, you can run:
 
 ```bash
-brew bundle dump --file=Brewfile --force
+brew bundle dump --file=Brewfile --force --formula --cask --tap
 ```
