@@ -45,7 +45,7 @@ alias localip="ipconfig getifaddr en0"
 alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
 
 # Network interfaces
-alias ifactive="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
+alias ifactive="ifconfig | awk '/^[^ \t]/ { if (b ~ /status: active/) printf \"%s\", b; b = \"\" } { b = b \$0 \"\n\" } END { if (b ~ /status: active/) printf \"%s\", b }'"
 
 # Cleanup
 # Empty the Trash on all mounted volumes and the main HDD.
@@ -59,7 +59,7 @@ alias showhidden="defaults write com.apple.finder AppleShowAllFiles -bool true &
 alias hidehidden="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
 
 # URL encode strings
-alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
+alias urlencode='python3 -c "import sys, urllib.parse as ul; print(ul.quote_plus(sys.argv[1]))"'
 
 # Spotlight on/off
 alias spotlighton="sudo mdutil -a -i on"
@@ -73,8 +73,13 @@ for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
 	alias "${method}"="lwp-request -m '${method}'"
 done
 
-# Lock the screen
-alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+# Lock the screen immediately, regardless of the "Require password" delay setting.
+# Sends the Lock Screen shortcut (Ctrl+Cmd+Q), which needs Accessibility access for
+# the terminal app; without it, calls the function behind the Lock Screen menu item.
+function afk {
+	osascript -e 'tell application "System Events" to keystroke "q" using {control down, command down}' 2>/dev/null ||
+		osascript -l JavaScript -e '$.NSBundle.bundleWithPath("/System/Library/PrivateFrameworks/login.framework").load; ObjC.bindFunction("SACLockScreenImmediate", ["int", []]); $.SACLockScreenImmediate()'
+}
 
 # Reload the shell
 alias reload="exec ${SHELL} -l"
