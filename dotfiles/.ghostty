@@ -41,3 +41,6 @@ font-family = "inconsolata nerd font mono"
 font-style-bold = "Medium"
 font-style-bold-italic = "Medium Italic"
 grapheme-width-method = "unicode"
+
+# Shift+Enter inserts a newline (e.g. multi-line input in Claude Code)
+keybind = shift+enter=text:\x1b\r
