@@ -41,3 +41,5 @@ HOMEBREW_COMMAND_NOT_FOUND_HANDLER="$(brew --repository)/Library/Homebrew/comman
 if [ -f "$HOMEBREW_COMMAND_NOT_FOUND_HANDLER" ]; then
     source "$HOMEBREW_COMMAND_NOT_FOUND_HANDLER";
 fi
+
+export SOPS_AGE_KEY_FILE="$HOME/.config/sops/age/keys.txt"
