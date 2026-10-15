@@ -1,6 +1,10 @@
 tap "alexstrnik/browserino", "https://github.com/AlexStrNik/homebrew-Browserino"
-tap "anomalyco/tap"
-tap "marsanne/cask"
+# Simple, modern, secure file encryption
+brew "age"
+# YAML Parser
+brew "libyaml"
+# Automate deployment, configuration, and upgrading
+brew "ansible"
 # Java build tool
 brew "ant"
 # Tool for reverse engineering 3rd party, closed, binary Android apps
@@ -15,6 +19,8 @@ brew "coreutils"
 brew "curl"
 # GNU awk utility
 brew "gawk"
+# GitHub command-line tool
+brew "gh"
 # Distributed revision control system
 brew "git"
 # Syntax-highlighting pager for git and diff output
@@ -25,12 +31,12 @@ brew "git-lfs"
 brew "gnupg"
 # GNU grep, egrep and fgrep
 brew "grep"
+# Handy way to save and run project-specific commands
+brew "just"
 # Simple terminal UI for git commands
 brew "lazygit"
 # GNOME XML library
 brew "libxml2"
-# YAML Parser
-brew "libyaml"
 # Clone of ls with colorful output, file type icons, and more
 brew "lsd"
 # Mac App Store command-line interface
@@ -39,10 +45,16 @@ brew "mas"
 brew "mint"
 # Deep clean and optimize your Mac
 brew "mole"
+# Drop-in replacement for Terraform. Infrastructure as Code Tool
+brew "opentofu"
 # Pinentry for GPG on Mac
 brew "pinentry-mac"
+# Fast Git hook manager written in Rust, drop-in alternative to pre-commit
+brew "prek"
 # Display and control your Android device
 brew "scrcpy"
+# Editor of encrypted files
+brew "sops"
 # Terminal multiplexer
 brew "tmux"
 # Tool for managing your YubiKey configuration
@@ -58,7 +70,7 @@ cask "bitwarden"
 # Scriptable scratchpad for developers
 cask "boop"
 # Browserino is a tiny browser selector for MacOS written in SwiftUI
-cask "alexstrnik/browserino/browserino"
+cask "alexstrnik/browserino/browserino", trusted: true
 # Open source IDE for exploring and testing APIs
 cask "bruno"
 # Anthropic's official Claude AI desktop app
@@ -67,8 +79,8 @@ cask "claude"
 cask "claude-code"
 # Brings the power of Copilot coding agent directly to your terminal
 cask "copilot-cli"
-# The Ultimate Homebrew Companion
-cask "marsanne/cask/cork"
+# GUI companion app for Homebrew
+cask "cork"
 # Downloads videos from different websites
 cask "downie"
 # Web browser
@@ -107,6 +119,8 @@ cask "monitorcontrol"
 cask "onlyoffice"
 # Finder Toolbar app to open the current directory in Terminal or Editor
 cask "openinterminal"
+# Replacement for Docker Desktop
+cask "orbstack"
 # Colour picker for colours onscreen
 cask "pika"
 # Intercept and modify HTTP requests
