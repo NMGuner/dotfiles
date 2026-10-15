@@ -17,6 +17,9 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
     # Run brew.sh
     ./scripts/brew.sh
 
+    # Load Homebrew into PATH for the remaining scripts (needed on a fresh install)
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+
     # Run asdf.sh
     ./scripts/asdf.sh
 

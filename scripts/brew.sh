@@ -5,6 +5,8 @@ echo "Installing Homebrew formulae and casks..."
 which -s brew
 if [[ $? != 0 ]]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    # A fresh install isn't on PATH yet; load it for the rest of this script
+    eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
 # Turn off analytics
