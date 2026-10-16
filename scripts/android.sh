@@ -2,6 +2,9 @@
 
 echo "Installing Android SDK and tools..."
 
+# Accept all licenses first, so the installs below don't stop for prompts
+yes | sdkmanager --licenses > /dev/null
+
 # Android Platform Tools
 sdkmanager --install platform-tools
 
@@ -13,13 +16,11 @@ sdkmanager --install "sources;android-36"
 # Update old packages if needed
 sdkmanager --update
 
-# Accept all licenses
-yes | sdkmanager --licenses
-
 # Check if symlink exists before creating it
 SDK_LINK="$HOME/Library/Android/sdk"
 if [ ! -L "$SDK_LINK" ]; then
     # symlink the sdk directory from the macOS default location
+    mkdir -p "$(dirname "$SDK_LINK")"
     ln -s /opt/homebrew/share/android-commandlinetools "$SDK_LINK"
     echo "Android SDK symlink created."
 else
