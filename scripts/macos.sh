@@ -3,9 +3,9 @@
 echo "Applying MacOS settings..."
 # https://macos-defaults.com/
 
-# Close any open System Preferences panes, to prevent them from overriding
+# Close System Settings, to prevent it from overriding
 # settings we’re about to change
-osascript -e 'tell application "System Preferences" to quit'
+osascript -e 'tell application "System Settings" to quit'
 
 # Ask for the administrator password upfront
 if [[ "$1" != "--force" && "$1" != "-f" ]]; then
