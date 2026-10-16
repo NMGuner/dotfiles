@@ -61,6 +61,8 @@ brew "tmux"
 brew "ykman"
 # Flexible and fast Zsh plugin manager
 brew "zinit"
+# Command-line tools for building and debugging Android apps
+cask "android-commandlinetools"
 # CPU management application
 cask "app-tamer"
 # App for managing battery charging
