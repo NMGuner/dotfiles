@@ -1,5 +1,8 @@
 #!/usr/bin/env zsh
 
+# Run from the repo root so the dotfiles/ path below works from any folder
+cd "$(dirname "$0")/.." || exit 1
+
 function configureIt() {
 	rsync -avh --no-perms dotfiles/ ~;
 }

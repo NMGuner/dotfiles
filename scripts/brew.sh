@@ -1,5 +1,8 @@
 #!/usr/bin/env zsh
 
+# Run from the repo root so the Brewfile path below works from any folder
+cd "$(dirname "$0")/.." || exit 1
+
 echo "Installing Homebrew formulae and casks..."
 
 which -s brew

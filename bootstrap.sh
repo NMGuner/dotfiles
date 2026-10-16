@@ -2,6 +2,9 @@
 
 set -e
 
+# Run from the repo root so the ./scripts paths below work from any folder
+cd "$(dirname "$0")" || exit 1
+
 sudo -v;
 
 # Get confirmation from user
