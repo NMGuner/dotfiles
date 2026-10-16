@@ -8,6 +8,14 @@ fi
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+# Oh My Zsh settings; it reads these while loading, so keep them above the source line
+# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
+
+DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+HIST_STAMPS="yyyy-mm-dd"
+
 # Plugins
 plugins=()
 
@@ -17,16 +25,10 @@ source $ZSH/oh-my-zsh.sh
 # USER CONFIG
 #########################################################################
 
-# COMPLETION_WAITING_DOTS="true"
-COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
-
-DISABLE_UNTRACKED_FILES_DIRTY="true"
-
 # history settings
 [ -z "$HISTFILE" ] && HISTFILE="$HOME/.zhistory"
 HISTSIZE=290000
 SAVEHIST=$HISTSIZE
-HIST_STAMPS="yyyy-mm-dd"
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
