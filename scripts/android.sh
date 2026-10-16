@@ -18,13 +18,16 @@ sdkmanager --update
 
 # Check if symlink exists before creating it
 SDK_LINK="$HOME/Library/Android/sdk"
-if [ ! -L "$SDK_LINK" ]; then
+if [ -L "$SDK_LINK" ]; then
+    echo "Android SDK symlink already exists, skipping..."
+elif [ -e "$SDK_LINK" ]; then
+    # e.g. an SDK installed by Android Studio; ln -s would put the link inside that folder
+    echo "Warning: $SDK_LINK already exists and is not a symlink, skipping..."
+else
     # symlink the sdk directory from the macOS default location
     mkdir -p "$(dirname "$SDK_LINK")"
     ln -s /opt/homebrew/share/android-commandlinetools "$SDK_LINK"
     echo "Android SDK symlink created."
-else
-    echo "Android SDK symlink already exists, skipping..."
 fi
 
 echo "Android SDK and tools have been installed."
