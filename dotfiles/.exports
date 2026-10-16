@@ -36,4 +36,8 @@ if [ -f "$HOMEBREW_COMMAND_NOT_FOUND_HANDLER" ]; then
     source "$HOMEBREW_COMMAND_NOT_FOUND_HANDLER";
 fi
 
+# Android SDK (set up by scripts/android.sh); puts adb on PATH, e.g. for scrcpy
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+export PATH="$ANDROID_HOME/platform-tools:$PATH"
+
 export SOPS_AGE_KEY_FILE="$HOME/.config/sops/age/keys.txt"
