@@ -5,10 +5,12 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Path to your Oh My Zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+# zinit: https://github.com/zdharma-continuum/zinit
+# Sourced here so the Oh My Zsh libraries below load before the user config;
+# ~/.zinit loads the theme and plugins further down.
+source /opt/homebrew/opt/zinit/zinit.zsh
 
-# Oh My Zsh settings; it reads these while loading, so keep them above the source line
+# Oh My Zsh library settings; the libraries read these while loading, so keep them above the snippets
 # COMPLETION_WAITING_DOTS="true"
 COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
 
@@ -16,17 +18,24 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 HIST_STAMPS="yyyy-mm-dd"
 
-# Plugins
-plugins=()
+# Oh My Zsh libraries, fetched by zinit (no ~/.oh-my-zsh install)
+zinit snippet OMZL::completion.zsh
+zinit snippet OMZL::directories.zsh
+zinit snippet OMZL::functions.zsh
+zinit snippet OMZL::history.zsh
+zinit snippet OMZL::key-bindings.zsh
+zinit snippet OMZL::misc.zsh
+zinit snippet OMZL::termsupport.zsh
+zinit snippet OMZL::theme-and-appearance.zsh
 
-source $ZSH/oh-my-zsh.sh
+# Complete with the ls colors set by theme-and-appearance.zsh, as oh-my-zsh.sh did
+[[ -z "$LS_COLORS" ]] || zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 #########################################################################
 # USER CONFIG
 #########################################################################
 
-# history settings
-[ -z "$HISTFILE" ] && HISTFILE="$HOME/.zhistory"
+# history settings; HISTFILE is ~/.zsh_history, set by /etc/zshrc (and OMZL::history.zsh if unset)
 HISTSIZE=290000
 SAVEHIST=$HISTSIZE
 
